@@ -1,0 +1,45 @@
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listagem de registros</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../header.css" />
+  </head>
+  <body>
+    <!--header: -->
+    <div class="header">
+      <img src="../images/self-logo.svg" alt="Daniela" />
+      <h1>Desafio 1: <span>Listagem de registros com filtros</span></h1>
+      <img src="../images/igti-logo.png" alt="IGTI" />
+    </div>
+
+    <!--data:-->
+    <div class="container">
+      <div class="controls">
+        <label>Sort by:</label>
+        <select name="sorting" id="sorting">
+          <option value="nameAsc">name (ascending)</option>
+          <option value="nameDes">name (descending)</option>
+          <option value="salaryAsc">salary (ascending)</option>
+          <option value="salaryDes">salary (descending)</option>
+        </select>
+        <label>Filter by Roles</label>
+        <div id="filterRoles"></div>
+      </div>
+      <div class="data">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Role</th>
+              <th scope="col">Salary</th>
+            </tr>
+          </thead>
+          <tbody id="dataShow"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
