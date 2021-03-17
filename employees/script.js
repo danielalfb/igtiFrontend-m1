@@ -1,6 +1,8 @@
+let showData = document.getElementById('showData');
+
 function fetchJson(url) {
-  return fetch(url).then((r) => {
-    return r.json();
+  return fetch(url).then((ans) => {
+    return ans.json();
   });
 }
 
@@ -17,7 +19,27 @@ async function constructTable() {
     fetchJson('http://localhost:3000/employees'),
     fetchJson('http://localhost:3000/roles'),
   ]);
-  let table = renderTable(employees, roles);
-  document.getElementById('showData').innerHTML = table;
+
+  var select = document.getElementById('sortElements');
+  select.addEventListener('change', () => {
+    let table;
+    selectedValue = select.value;
+
+    if (selectedValue === 'nameAsc') {
+      employees.sort((a, b) => a.name > b.name);
+      console.log('0');
+    } else if (selectedValue === 'nameDes') {
+      console.log('1');
+      // employees.sort((a, b) => a.name < b.name);
+    } else if (selectedValue === 'salaryAsc') {
+      console.log('2');
+      // employees.sort((a, b) => a.salary > b.salary)
+    } else if (selectedValue === 'salaryDes') {
+      console.log('3');
+      // employees.sort((a, b) => a.salary < b.salary)
+    }
+    table = renderTable(employees, roles);
+    showData.innerHTML = table;
+  });
 }
 constructTable();
